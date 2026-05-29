@@ -141,3 +141,15 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Cypress específicos
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Si usas Cypress Cloud o generas reportes locales (como Mochawesome)
+cypress/reports/
+.cypress-cache/
+
+# Archivos de entorno locales (donde guardas contraseñas o tokens de prueba)
+cypress.env.json
