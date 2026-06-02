@@ -1,4 +1,4 @@
-describe('Eliminar un producto del carrito', () => {
+describe('Checkout con datos incompletos', () => {
 
     beforeEach(() => {
         cy.viewport(1280, 720)
@@ -8,12 +8,14 @@ describe('Eliminar un producto del carrito', () => {
         cy.get('[data-test=login-button]').click()
     })
 
-    it('Eliminar un producto del carrito', () => {
+    it('Checkout con datos incompletos', () => {
         cy.get('[data-test=add-to-cart-sauce-labs-bolt-t-shirt]').click()
-        cy.get('[data-test=add-to-cart-sauce-labs-fleece-jacket]').scrollIntoView().click()
+        cy.get('[data-test=shopping-cart-badge]').should('contain', '1')
         cy.get('[data-test=shopping-cart-link]').click()
-        cy.get('[data-test=remove-sauce-labs-bolt-t-shirt]').click()
-        cy.get('[data-test=shopping-cart-link]').should('contain', '1')
+        cy.get('[data-test=checkout]').click()
+        cy.get('[data-test=continue]').click()
+        cy.get('[data-test=error]').scrollIntoView().should('be.visible')
+
     })
 
 })
